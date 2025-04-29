@@ -1,6 +1,7 @@
 ﻿using APIDevSteam.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using APIDevSteam.Models;
 
 namespace APIDevSteam.Data
 {
@@ -15,6 +16,8 @@ namespace APIDevSteam.Data
         public DbSet<JogoCategoria> JogosCategorias { get; set; }
         public DbSet<Carrinho> Carrinhos { get; set; }
         public DbSet<ItemCarrinho> ItensCarrinhos { get; set; }
+        public DbSet<Cupom> Cupons { get; set; }
+        public DbSet<CupomCarrinho> CuponsCarrinhos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,6 +29,9 @@ namespace APIDevSteam.Data
             builder.Entity<JogoCategoria>().ToTable("JogosCategorias");
             builder.Entity<Carrinho>().ToTable("Carrinhos");
             builder.Entity<ItemCarrinho>().ToTable("ItemCarrinhos");
+            builder.Entity<Cupom>().ToTable("Cupons");
+            builder.Entity<CupomCarrinho>().ToTable("CuponsCarrinhos");
         }
+        public DbSet<APIDevSteam.Models.CupomCarrinho> CupomCarrinho { get; set; } = default!;
     }
 }

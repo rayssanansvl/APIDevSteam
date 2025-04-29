@@ -10,7 +10,7 @@ using APIDevSteam.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 
-namespace APIDevSteamJau.Controllers
+namespace APIDevSteam.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -4,6 +4,7 @@ using APIDevSteam.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIDevSteam.Migrations
 {
     [DbContext(typeof(APIContext))]
-    partial class APIContextModelSnapshot : ModelSnapshot
+    [Migration("20250429171054_Cupom")]
+    partial class Cupom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,15 +89,9 @@ namespace APIDevSteam.Migrations
                     b.Property<int>("Desconto")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LimiteUso")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PorcentagemDesconto")
-                        .HasColumnType("int");
 
                     b.HasKey("CupomId");
 
@@ -276,35 +273,6 @@ namespace APIDevSteam.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("APIDevSteamJau.Models.CupomCarrinho", b =>
-                {
-                    b.Property<Guid>("CupomCarrinhoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool?>("Ativo")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DataValidade")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Desconto")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LimiteUso")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("Nome")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CupomCarrinhoId");
-
-                    b.ToTable("CupomCarrinho");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
